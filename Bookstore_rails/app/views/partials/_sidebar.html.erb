@@ -1,0 +1,19 @@
+<% if params[:controller] == 'about' %>
+<div class = "well">
+  <h3>Location info</h3>
+  <ul>
+    <li>The Bookstore</li>
+    <li>Lahore pakistan street 13</li>
+    <li>Boston Dynamics 1992</li>
+    <li>Phone Number (92)0312-3123213</li>
+    <li>Email: practiceruby@gmail.com</li>
+  </ul>
+</div>
+<%end%>
+<% if params[:controller] == 'books' && params[:action] == 'index' || params[:action] == 'show' %>
+<div class="list-group">
+    <% @categories.each do |category| %>
+      <%= link_to category.name, category_path(category.id), class:"list-group-item" %>
+    <%end%>
+</div>
+<%end%>

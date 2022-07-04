@@ -1,0 +1,26 @@
+<div id="books-show">
+  <h2><%= @book.title %></h2>
+  <div class="books-show-left">
+    <%= image_tag(@book.coverpath) %>
+  </div>
+  <div class="books-show-right">
+    <h1>Books Info</h1>
+    <ul>
+      <li><storng>Category:</storng><%= @book.category.name %></li>
+      <li><storng>Author:</storng><%= @book.author.first_name %><%= @book.author.last_name %></li>
+      <li><storng>Publisher:</storng><%= @book.publisher.name %></li>
+      <li><storng>Year:</storng><%= @book.year %></li>
+      <li><storng>ISBN:</storng><%= @book.isbn %></li>
+      <li><storng>Format:</storng><%= @book.format %></li>
+      <li><storng>Pages:</storng><%= @book.pages %></li>
+    </ul>
+    <%=link_to "Buy For " + @book.price, @book.buy, class:"btn btn-success",target:"_blank" %>
+  </div>
+  <div class="clearfix">
+    <h1>Excerpt</h1>
+    <p><%= @book.excerpt %></p>
+  </div>
+
+  <div> Admin Functions </div>
+  <%= link_to 'Edit', edit_book_path(@book.id) %> | <%= link_to 'Delete', book_path(@book) , method: :delete, data: { confim: 'Are you Sure'} %>
+</div>
